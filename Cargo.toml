@@ -1,0 +1,32 @@
+[package]
+name = "cv-contour"
+version = "0.2.0" # change with html_root_url in lib.rs
+edition = "2021"
+authors = ["nomissbowling <nomissbowling@yahoo.co.jp>"]
+
+description = "Rust crate cv-contour supports ESRI J shapefile"
+keywords = ["shape", "contour", "geo", "OpenCV", "2D"]
+categories = ["graphics", "science", "science::geo", "external-ffi-bindings"]
+license = "MIT"
+
+documentation = "https://docs.rs/cv-contour/"
+homepage = "https://crates.io/crates/cv-contour"
+repository = "https://github.com/nomissbowling/cv-contour"
+
+readme = "README.md"
+
+#build = "build.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "cv_contour"
+
+[dependencies]
+shapelib-rs = { version = "0.2" }
+shape-contour = { version = "0.2" }
+
+opencv = { version = "0.78.2", default-features = false, features = ["highgui", "videoio", "video", "photo", "imgproc", "imgcodecs", "ml", "objdetect", "stitching", "calib3d", "features2d", "flann", "dnn"]} # without "core" "gapi"
+
+[package.metadata.docs.rs]
+rustc-args = ["--cfg", "docsrs"]
